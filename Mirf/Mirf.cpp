@@ -284,11 +284,15 @@ void Nrf24l::ceLow(){
 }
 
 void Nrf24l::csnHi(){
-	digitalWrite(csnPin,HIGH);
+	//digitalWrite(csnPin,HIGH);
+  PORTB |= (1<<PINB2);
+  delayMicroseconds(64);
 }
 
 void Nrf24l::csnLow(){
-	digitalWrite(csnPin,LOW);
+	// digitalWrite(csnPin,LOW);
+  PORTB &= ~(1<<PINB2);
+  delayMicroseconds(8);
 }
 
 void Nrf24l::powerDown(){
